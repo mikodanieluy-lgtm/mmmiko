@@ -1,0 +1,70 @@
+$ history
+    1  ls
+    2  cd documents
+    3  mdkir okim
+    4  ls
+    5  cd ..
+    6  cd documents
+    7  mkdir okim
+    8  cd okim
+    9  ls
+   10  touch
+   11  touch test.txt
+   12  ls
+   13  rm test.txt
+   14  ls
+   15  touch readme.md
+   16  ls
+   17  start readme.md
+   18  ls
+   19  git init
+   20  ls -al
+   21  cd .git
+   22  ls -al
+   23  cd ..
+   24  ls
+   25  git status
+   26  git add .
+   27  git status
+   28  git config --global user.name"okim"
+   29  git config --global user.name "okim"
+   30  git config --global user.name
+   31  git remote add origin https://github.com/mikodanieluy-lgtm/mmmiko.git
+   32  git config --global user.email
+   33  git config --global user.email "mikodaniel26@gmail.com"
+   34  git config --global user.email
+   35  git commit -m "kahit ano"
+   36  git branch -M main
+   37  git remote add origin https://github.com/mikodanieluy-lgtm/mmmiko.git
+   38  git push -u orgin
+   39  git push -u origin
+   40  git push -u origin main
+   41  start readme.md
+   42  git commit -m "mikowah"
+   43  git add .
+   44  git commit -m "mikowah"
+   45  git status
+   46  git status
+   47  git add .
+   48  git commit -m
+   49  git commit -m "mikowah"
+   50  cd .git
+   51  ls
+   52  git config
+   53  start readme.md
+   54  git add .
+   55  cd ..
+   56  git status
+   57  git push
+   58  start
+   59  start okim
+   60  ls
+   61  start readme.md
+   62  git add ..
+   63  git add .
+   64  git status
+   65  git commit -m "okim"
+   66  git push
+   67  cd ..
+   68  git clone https://github.com/mikodanieluy-lgtm/mmmiko.git
+   69  history
