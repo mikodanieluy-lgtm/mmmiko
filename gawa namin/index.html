@@ -14,44 +14,36 @@
         <div class="logo-box">[App Logo Image]</div>
         <h1 class="app-title">StockWise:</h1>
         <p class="app-sub">Home Inventory & Expiry Tracker WebApp</p>
-        <button class="primary-btn" onclick="navTo('login')">Begin</button>
+        <button class="primary-btn" onclick="beginApp()">Begin</button>
       </div>
-      <nav class="bottom-nav hidden">
-        <button onclick="navTo('home')" class="nav-btn">Home</button>
-        <button onclick="navTo('inventory')" class="nav-btn">Inventory</button>
-        <button onclick="navTo('calendar')" class="nav-btn">Calendar</button>
-        <button onclick="navTo('settings')" class="nav-btn">Settings</button>
-      </nav>
     </section>
 
     <!-- Login -->
-    <!-- Login -->
-<section class="screen hidden" id="login">
-  <div class="app-card small">
-    <h2 class="login-page">LOGIN PAGE</h2>
-    
-    <label>Username:</label>
-    <input id="login-username" placeholder="Username" />
-    
-    <label>Password:</label>
-    <input id="login-password" type="password" placeholder="Password" />
-    
-    <!-- Forgot Password left, Register right -->
-    <div class="login-links">
-      <a href="#" class="forgot-link" onclick="showForgotPassword()">Forgot Password</a>
-      <a href="#" class="register-link" onclick="showRegister()">Register</a>
-    </div>
-    
-    <div class="row">
-      <button class="secondary-btn" onclick="showToast('Use admin/admin123 or staff/staff123')"></button>
-      <button class="primary-btn" onclick="doLogin()">Login</button>
-    </div>
-    
-    <p class="error" id="login-error"></p>
-  </div>
-</section>
+    <section class="screen hidden" id="login">
+      <div class="app-card">
+        <h2 class="login-page">LOGIN PAGE</h2>
+        
+        <label>Username:</label>
+        <input id="login-username" placeholder="Username" />
+        
+        <label>Password:</label>
+        <input id="login-password" type="password" placeholder="Password" />
+        
+        <div class="login-links">
+          <a href="#" class="forgot-link" onclick="showForgotPassword()">Forgot Password</a>
+          <a href="#" class="register-link" onclick="showRegister()">Register</a>
+        </div>
+        
+        <div class="row">
+          <button class="secondary-btn" onclick="showToast('Use admin/admin123 or staff/staff123')">Help</button>
+          <button class="primary-btn" onclick="doLogin()">Login</button>
+        </div>
+        
+        <p class="error" id="login-error"></p>
+      </div>
+    </section>
 
-    <!-- Main App Container (all app screens) -->
+    <!-- Main App Container -->
     <main id="app" class="hidden">
       <!-- Top bar -->
       <header class="top-bar">
@@ -65,30 +57,105 @@
       <!-- HOME -->
       <section class="screen app-screen" id="home-screen">
         <div class="content cardish">
-          <button class="add-item" onclick="navTo('add-item')">+ Add Item</button>
+          <div class="app-title-section">
+            <h1 class="app-title-main">StockWise:</h1>
+            <p class="app-subtitle">Home Inventory &<br>Expiry Tracker App</p>
+          </div>
 
-          <h3>Upcoming Expirations:</h3>
-          <ul id="upcoming-list" class="list"></ul>
+          <button class="add-item-btn" onclick="navTo('add-item-screen')">+ Add Item</button>
 
-          <h3>Inventory Summary:</h3>
-          <div id="summary-list" class="summary"></div>
+          <div class="upcoming-section">
+            <h3 class="section-heading">Upcoming Expirations:</h3>
+            <div class="upcoming-list">
+              <div class="upcoming-item">
+                <span class="item-name-bold">Milk</span> (Whole)<br>
+                <span class="expiry-detail">Expires in 3 days • Food</span>
+              </div>
+              <div class="upcoming-item">
+                <span class="item-name-bold">Paracetamol</span><br>
+                <span class="expiry-detail">Expires in 5 days • Medicine</span>
+              </div>
+              <div class="upcoming-item">
+                <span class="item-name-bold">Rice</span> (Basmati)<br>
+                <span class="expiry-detail">Expires in 20 days • Food</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="summary-section">
+            <h3 class="section-heading">Inventory Summary</h3>
+            <div class="summary-list">
+              <div class="summary-item">
+                <div class="summary-text">
+                  <strong>Food:</strong> 12 items<br>
+                  <span class="percentage">80%</span>
+                </div>
+              </div>
+              <div class="summary-item">
+                <div class="summary-text">
+                  <strong>Medicine:</strong> 5 items<br>
+                  <span class="percentage">40%</span>
+                </div>
+              </div>
+              <div class="summary-item">
+                <div class="summary-text">
+                  <strong>Supplies:</strong> 8 items<br>
+                  <span class="percentage">60%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <hr class="section-divider">
+
+          <div class="category-inventory">
+            <!-- Category sections will be added dynamically -->
+          </div>
+
+          <div class="settings-footer">
+            <p class="settings-text">Home Inventory Calendar Settings</p>
+          </div>
         </div>
       </section>
 
       <!-- INVENTORY -->
       <section class="screen app-screen hidden" id="inventory-screen">
-        <div class="content cardish">
-          <input id="search-inv" placeholder="🔍 Search Inventory..." oninput="renderInventory()" />
-          <div id="inventory-list" class="list"></div>
+        <header class="top-bar">
+          <span>Inventory</span>
+          <div class="top-actions">
+            <button class="small" onclick="navTo('add-item-screen')">+ Add</button>
+            <button class="small">Filter</button>
+          </div>
+        </header>
+        
+        <div class="content cardish inventory-container">
+          <div class="search-container">
+            <input id="search-inv" class="search-bar" placeholder="Search Inventory..." oninput="renderInventory()" />
+          </div>
+          
+          <div id="inventory-list" class="inventory-categories">
+            <!-- Inventory will be added dynamically -->
+          </div>
+          
+          <div class="inventory-footer">
+            <div class="footer-divider"></div>
+            <p class="footer-text">Home Inventory Calendar Settings</p>
+          </div>
         </div>
       </section>
 
       <!-- CALENDAR -->
       <section class="screen app-screen hidden" id="calendar-screen">
+        <header class="top-bar">
+          <span>Calendar</span>
+          <div class="top-actions">
+            <button class="small" onclick="navTo('today')">Today</button>
+          </div>
+        </header>
         <div class="content cardish">
           <div class="calendar-controls">
             <button onclick="changeMonth(-1)">◀</button>
-            <div id="calendar-month"></div>
+            <div id="calendar-month">March 2025</div>
             <button onclick="changeMonth(1)">▶</button>
           </div>
           <div id="calendar-grid" class="calendar-grid"></div>
@@ -99,6 +166,10 @@
 
       <!-- SETTINGS -->
       <section class="screen app-screen hidden" id="settings-screen">
+        <header class="top-bar">
+          <span>Settings</span>
+          <div class="top-actions"></div>
+        </header>
         <div class="content cardish">
           <h3>Settings</h3>
           <label><input type="checkbox" id="enable-reminders" /> Enable expiry reminders (demo only)</label>
@@ -125,6 +196,12 @@
 
       <!-- ADD ITEM -->
       <section class="screen app-screen hidden" id="add-item-screen">
+        <header class="top-bar">
+          <span>Add Item</span>
+          <div class="top-actions">
+            <button class="small" onclick="navTo('home-screen')">Cancel</button>
+          </div>
+        </header>
         <div class="content cardish">
           <h3>Add New Item</h3>
           <label>Item Name:</label>
@@ -139,46 +216,8 @@
           <label>Notes (optional):</label>
           <textarea id="ai-notes" rows="3" placeholder="Notes..."></textarea>
           <div class="row">
-            <button class="secondary-btn" onclick="navTo('home')">Cancel</button>
+            <button class="secondary-btn" onclick="navTo('home-screen')">Cancel</button>
             <button class="primary-btn" onclick="saveNewItem()">Save</button>
-          </div>
-        </div>
-      </section>
-
-      <!-- ITEM DETAILS -->
-      <section class="screen app-screen hidden" id="item-details-screen">
-        <div class="content cardish">
-          <h3 id="detail-name">Item</h3>
-          <div class="note-box" id="detail-category">Category</div>
-          <div class="image-box">[Item Image]</div>
-          <p><strong>Expiry Status:</strong> <span id="detail-expiry"></span></p>
-          <p><strong>Quantity:</strong> <span id="detail-qty"></span></p>
-          <p><strong>Notes:</strong> <span id="detail-notes"></span></p>
-          <p><strong>Date Added:</strong> <span id="detail-date"></span></p>
-          <div class="row">
-            <button class="secondary-btn" onclick="startEdit()">Edit</button>
-            <button class="danger-btn" onclick="deleteCurrentItem()">Delete</button>
-          </div>
-        </div>
-      </section>
-
-      <!-- EDIT ITEM (reuses add form by prefilling) -->
-      <section class="screen app-screen hidden" id="edit-item-screen">
-        <div class="content cardish">
-          <h3>Edit Item</h3>
-          <label>Item Name:</label>
-          <input id="ei-name" />
-          <label>Category:</label>
-          <input id="ei-category" list="category-datalist" />
-          <label>Expiry Date:</label>
-          <input id="ei-expiry" type="date" />
-          <label>Quantity:</label>
-          <input id="ei-qty" type="number" min="1" />
-          <label>Notes (optional):</label>
-          <textarea id="ei-notes" rows="3"></textarea>
-          <div class="row">
-            <button class="secondary-btn" onclick="navTo('home')">Cancel</button>
-            <button class="primary-btn" onclick="saveEditedItem()">Save</button>
           </div>
         </div>
       </section>
@@ -188,11 +227,10 @@
 
       <!-- Bottom navigation -->
       <nav class="bottom-nav" id="bottom-nav">
-        <button onclick="navTo('home')" class="nav-btn" id="nav-home">Home</button>
-        <button onclick="navTo('inventory')" class="nav-btn" id="nav-inv">Inventory</button>
-        <button onclick="navTo('calendar')" class="nav-btn" id="nav-cal">Calendar</button>
-        <button onclick="navTo('settings')" class="nav-btn" id="nav-set">Settings</button>
-
+        <button onclick="navTo('home-screen')" class="nav-btn active" id="nav-home">Home</button>
+        <button onclick="navTo('inventory-screen')" class="nav-btn" id="nav-inv">Inventory</button>
+        <button onclick="navTo('calendar-screen')" class="nav-btn" id="nav-cal">Calendar</button>
+        <button onclick="navTo('settings-screen')" class="nav-btn" id="nav-set">Settings</button>
       </nav>
     </main>
   </div>
